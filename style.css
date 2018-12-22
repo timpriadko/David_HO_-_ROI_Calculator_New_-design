@@ -26,6 +26,10 @@ hr {
     border: 1px solid #ebebeb;
 }
 
+p {
+    line-height: 1.3;
+}
+
 select {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -40,6 +44,7 @@ select {
     border-radius: 30px;
     cursor: pointer;
     border: 1px solid #ededed;
+    outline: none;
 }
 
 input {
@@ -52,6 +57,20 @@ input {
     padding-left: 30px;
     padding-right: 30px;
     border: 1px solid #ededed;
+    outline: none;
+}
+
+input:focus {
+    border-color: #719ECE;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+button {
+    outline: none;
+}
+
+button:hover {
+    transition: all 0.5s;
 }
 
 
@@ -110,8 +129,30 @@ input {
     top: 30px;
 }
 
+.btn-success {
+    height: 55px;
+    background-color: #2196f3;
+    border-radius: 30px;
+    border: none;
+    width: 25%;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-success:hover {
+    background-color: #145b93;
+}
+
 
 /* ------------------------------------------------------------------------------- */
+
+
+/* Step-1 */
+
+p {
+    line-height: 1;
+}
 
 
 /* Breadcrumbs */
@@ -274,17 +315,13 @@ input {
 }
 
 
-/* Calculation description  */
+/* Read More/Less  */
 
-#more {
+#text {
     display: none;
 }
 
-#dots {
-    color: transparent;
-}
-
-#myBtn {
+#toggle {
     border: none;
     background-color: transparent;
     text-transform: uppercase;
@@ -294,6 +331,7 @@ input {
     cursor: pointer;
     margin-top: 15px;
     padding: 0;
+    outline: none;
 }
 
 .calculation-description {
@@ -311,14 +349,6 @@ input {
     color: #1b1728;
 }
 
-.calculation-description ol {
-    margin-left: 50px;
-}
-
-.calculation-description li {
-    padding-left: 30px;
-}
-
 
 /* Step-1 Selects */
 
@@ -333,6 +363,11 @@ input {
 .step-1-selects .selects-year {
     display: flex;
     justify-content: space-between;
+    padding-right: 0;
+}
+
+.step-1-selects .selects-year .select-wrapper {
+    padding-right: 0;
 }
 
 .step-1-selects .selects-year .select-wrapper:after {
@@ -377,20 +412,6 @@ input {
 .start-benchmarking-inputs input {
     width: 100%;
     margin-top: 15px;
-}
-
-
-/* Bench btn */
-
-#bench_btn {
-    height: 55px;
-    background-color: #2196f3;
-    border-radius: 30px;
-    border: none;
-    width: 25%;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
 }
 
 
@@ -591,17 +612,16 @@ input {
     border-radius: 30px;
     font-size: 12px;
     font-weight: bold;
-    color: #fff;
     cursor: pointer;
 }
 
-#fill_optional_btn {
-    background-color: #2196f3;
+.skip-btn {
+    background-color: #e2e2e2;
+    color: #5e5e5e;
 }
 
-#skip_to_results_btn {
-    background-color: #e2e2e2;
-    color: #5b5b5b;
+.skip-btn:hover {
+    background-color: #bebebe;
 }
 
 
@@ -636,24 +656,22 @@ input {
     text-align: center;
 }
 
-.step-3 .skip-btn {
+.step-3 .skip-btn-wrapper,
+.compute-btn {
     margin-top: 40px;
     margin-bottom: 60px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.step-3 .skip-btn button {
+.step-3 .skip-btn-wrapper button {
     width: 100%;
     border: none;
     height: 55px;
     border-radius: 30px;
     font-size: 12px;
     font-weight: bold;
-    color: #fff;
     cursor: pointer;
-    background-color: #e2e2e2;
-    color: #5b5b5b;
 }
 
 
@@ -681,11 +699,10 @@ input {
 }
 
 
-/* Button */
+/* Compute Button */
 
-#compute_results {
-    background-color: #2196f3;
-    color: #fff;
+.step-3 .btn-success {
+    width: 100%;
 }
 
 
@@ -831,17 +848,10 @@ td:first-child {
     justify-content: center;
 }
 
-#mail_btn {
+.mail-btn .btn-success {
     font-size: 12px;
     font-weight: bold;
-    color: #fff;
-    background-color: #2196f3;
-    border: none;
-    height: 55px;
-    border-radius: 30px;
     width: 31%;
-    cursor: pointer;
-    margin-top: 15px;
 }
 
 

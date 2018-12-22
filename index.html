@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="reset_and_bootstrap-grid.css">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -90,43 +91,50 @@
         <div class="fusion-builder-row">
             <div class="inner-border">
                 <section class="step-1">
+                    <!-- Read More/Less -->
                     <div class="calculation-description">
                         <h2>Calculating your ROI</h2>
                         <p class="description-content">The ROI of offering medical benefits to employees is traditionally very hard to calculate, frequently involving qualitative and / or long-term quantitative measures. This MB ROI calculator™ has been designed combining the most
-                            common meaasures in use today.<span id="dots">...</span>
+                            common meaasures in use today.
                             <br>
                             <br>
-                            <div id="more">in order to more comprehensively assess a company's ROI of investments in health and medical benefits, including medical insurance, over a period of up to 4 years. The calculator takes into account both tangible measures such
-                                as absenteeism costs and costof medical claims, as well as the more intangible measures such as productivity lossess from presenteeism and from employee disengagement due to illness, using statistics from The 2017 Global
-                                Benefits Attitudes Survey, by Willis Towers Watson.
+                            <span id="text">
+                                <br>
+                                <br>
+                                    in order to more comprehensively assess a company's ROI of investments in health and medical benefits, including medical insurance, over a period of up to 4 years. The calculator takes into account both tangible measures such
+                                    as absenteeism costs and costof medical claims, as well as the more intangible measures such as productivity lossess from presenteeism and from employee disengagement due to illness, using statistics from The 2017 Global
+                                    Benefits Attitudes Survey, by Willis Towers Watson.
                                 <br>
                                 <br>
                                 <b>Provided your organisation has reliable data on absenteeism and health and medical expenses, the MB ROI Calculator™ can be a valuable decision-making tool for
-                            assessing the ROI on health and medical benefits.</b>
+                                assessing the ROI on health and medical benefits.</b>
                                 <br>
-                                <br> The financial losses considered are:
-                                <br>
-                                <br>
-                                <br>
-                                <ol>
-                                    <li>Cost of absenteeism due to illness - calculated as the total number of days of absenteeism from illness multiplied by the average daily salary</li>
-                                    <li>Cost of medical claims - cost of medical claims to the company, not including medical insurance costs</li>
-                                    <li>Overtime cost as a result of illness - taken directly from company data</li>
-                                    <li>Cost of recruitment for replacements due to illness - taken directly from company data</li>
-                                    <li>Cost of lost productivity due to illness (presenteeism) - calculated through number of days lost (based on the Global Benefits Attitude Survey) due to presenteeism multiplied by the average daily salary and a productivity
-                                        factor
-                                    </li>
-                                    <li>Cost of employee disengagement due to illness - calculated through number of days lost (based on the Global Benefits Attitude Survey) due to presenteeism multiplied by the average daily salary and a productivity factor</li>
-                                </ol><br> In the list above, financial losses 1 - 4 are practical, i.e. they come directly from quantiative measurements, whereas financial losses 5 and 6 are qualitative and derived measures. There is however ample evidence
-                                supporting the cost of lost productivity due to presenteeism (for example <a href="http://www.workforce.com/2012/09/17/tracking-true-cost-of-lost-productivity-remains-a-challenge/">http://www.workforce.com/2012/09/17/tracking-true-cost-of-lost-productivity-remains-a-challenge/</a>)
-                                and employee disengagement (for example: <a href="https://www.entrepreneur.com/article/246036">https://www.entrepreneur.com/article/246036</a>). hese derived indicators rely on defining a general state of employee health
-                                in the organization, as defined by below average, good or very good (underperforming, average performance or above average performance against industry absenteeism benchmarks)
+                                <br>financial losses considered are:
                                 <br>
                                 <br>
                                 <br>
-                            </div>
+                                <span style="display:inline-block; width: 1em;"></span> 1. <span style="display:inline-block; width: 1em;"></span>Cost of absenteeism due to illness - calculated as the total number of days of
+                            absenteeism from illness multiplied by the average daily salary
+                            <br><span style="display:inline-block; width: 1em;"></span> 2. <span style="display:inline-block; width: 1em;"></span>Cost of medical claims - cost of medical claims to the company, not including medical insurance costs
+                            <br><span style="display:inline-block; width: 1em;"></span> 3. <span style="display:inline-block; width: 1em;"></span>Overtime cost as a result of illness - taken directly from company data
+                            <br><span style="display:inline-block; width: 1em;"></span> 4. <span style="display:inline-block; width: 1em;"></span>Cost of recruitment for replacements due to illness - taken directly from company data
+                            <br><span style="display:inline-block; width: 1em;"></span> 5. <span style="display:inline-block; width: 1em;"></span>Cost of lost productivity due to illness (presenteeism) - calculated through number of days lost (based on
+                            the Global Benefits Attitude Survey) due to presenteeism multiplied by the average daily salary and a productivity factor
+                            <br><span style="display:inline-block; width: 1em;"></span> 6. <span style="display:inline-block; width: 1em;"></span>Cost of employee disengagement due to illness - calculated through number of days lost (based on the Global
+                            Benefits Attitude Survey) due to presenteeism multiplied by the average daily salary and a productivity factor
+                            <br>
+                            <br> In the list above, financial losses 1 - 4 are practical, i.e. they come directly from quantiative measurements, whereas financial losses 5 and 6 are qualitative and derived measures. There is however ample evidence supporting
+                            the cost of lost productivity due to presenteeism (for example <a href="http://www.workforce.com/2012/09/17/tracking-true-cost-of-lost-productivity-remains-a-challenge/">http://www.workforce.com/2012/09/17/tracking-true-cost-of-lost-productivity-remains-a-challenge/</a>)
+                            and employee disengagement (for example: <a href="https://www.entrepreneur.com/article/246036">https://www.entrepreneur.com/article/246036</a>). hese derived indicators rely on defining a general state of employee health in
+                            the organization, as defined by below average, good or very good (underperforming, average performance or above average performance against industry absenteeism benchmarks)
+                            <br>
+                            <br>
+                            <br>
+                            </span>
                         </p>
-                        <button onclick="readMoreBtn()" id="myBtn">Read more</button>
+                        <div class="btn-container">
+                            <button id="toggle">Read More</button>
+                        </div>
                     </div>
                     <h4>Start Benchmarking your results</h4>
                     <div class="fusion-builder-row">
@@ -247,43 +255,6 @@
                                         </g>
                                     </g>
                                 </g>
-                            <!-- Code injected by live-server -->
-                                <script type="text/javascript">
-                                    // <![CDATA[  <-- For SVG support
-                                    if ('WebSocket' in window) {
-                                        (function () {
-                                            function refreshCSS() {
-                                                var sheets = [].slice.call(document.getElementsByTagName("link"));
-                                                var head = document.getElementsByTagName("head")[0];
-                                                for (var i = 0; i < sheets.length; ++i) {
-                                                    var elem = sheets[i];
-                                                    head.removeChild(elem);
-                                                    var rel = elem.rel;
-                                                    if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-                                                        var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-                                                        elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-                                                    }
-                                                    head.appendChild(elem);
-                                                }
-                                            }
-                                            var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-                                            var address = protocol + window.location.host + window.location.pathname + '/ws';
-                                            var socket = new WebSocket(address);
-                                            socket.onmessage = function (msg) {
-                                                if (msg.data == 'reload') window.location.reload();
-                                                else if (msg.data == 'refreshcss') refreshCSS();
-                                            };
-                                            if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-                                                console.log('Live reload enabled.');
-                                                sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-                                            }
-                                        })();
-                                    }
-                                    else {
-                                        console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-                                    }
-                                    // ]]>
-                                </script>
                             </svg>
                         </div>
                         <div class="current-benchmark-rating-value">Below Average</div>
@@ -429,10 +400,10 @@
                             </div>
                             <div class="row step-2-buttons">
                                 <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                    <button id="fill_optional_btn">FILL OPTIONAL PARAMETERS</button>
+                                    <button id="fill_optional_btn" class="btn-success">FILL OPTIONAL PARAMETERS</button>
                                 </div>
                                 <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                    <button id="skip_to_results_btn">SKIP TO RESULTS</button>
+                                    <button id="skip_to_results_btn" class="skip-btn">SKIP TO RESULTS</button>
                                 </div>
                             </div>
                         </div>
@@ -441,8 +412,8 @@
                     <section class="step-3">
                         <h5>Fill In Optional Parameters</h5>
                         <p>Insert data here will increase the accuracy of your ROI results</p>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 skip-btn">
-                            <button id="skip_to_results_btn2">SKIP TO RESULTS</button>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 skip-btn-wrapper">
+                            <button id="skip_to_results_btn2" class="skip-btn">SKIP TO RESULTS</button>
                         </div>
                         <div class="row rating-year-row">
                             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 visible-lg-block visible-md-block">
@@ -582,8 +553,8 @@
                                 </div>
                                 <p>* Make an assumption here of how much less productive the average employee is based on lack of motivation or illness, a number of 2% - 10% is recommended.</p>
                             </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 skip-btn">
-                                <button id="compute_results" onclick="roicalculation();">COMPUTE RESULTS</button>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 compute-btn">
+                                <button id="compute_results" onclick="roicalculation();" class="btn-success">COMPUTE RESULTS</button>
                             </div>
                     </section>
                     </div>
@@ -737,6 +708,7 @@
     </div>
 
     <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="/script.js"></script>
 </body>
 
