@@ -15,7 +15,7 @@
     <div class="container">
         <!-- Breadcrumbs -->
         <div class="breadcrumb flat">
-            <a href="#" class="passed">
+            <a href="#" id="breadcrumb_step1" class="active current-step">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="36px" viewBox="0 0 36 36" version="1.1">
                     <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
                     <title>On Progress</title>
@@ -33,7 +33,7 @@
                     </g>
                 </svg>
                 <b>Step 1</b> Benchmark</a>
-            <a href="#" class="active"><span class="arrow-before-top"></span><span class="arrow-before-bottom"></span>
+            <a href="#" id="breadcrumb_step2"><span class="arrow-before-top"></span><span class="arrow-before-bottom"></span>
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="36px" viewBox="0 0 36 36" version="1.1">
                     <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
                     <title>On Progress</title>
@@ -51,7 +51,7 @@
                     </g>
                 </svg>
                 <b>Step 2</b> Mandatory Parameters</a>
-            <a href="#"><span class="arrow-before-top"></span><span class="arrow-before-bottom"></span>
+            <a href="#" id="breadcrumb_step3"><span class="arrow-before-top"></span><span class="arrow-before-bottom"></span>
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="36px" viewBox="0 0 36 36" version="1.1">
                     <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
                     <title>On Progress</title>
@@ -69,7 +69,7 @@
                     </g>
                 </svg>
                 <b>Step 3</b> Optional Paramets</a>
-            <a href="#"><span class="arrow-before-top"></span><span class="arrow-before-bottom"></span>
+            <a href="#" id="breadcrumb_step4"><span class="arrow-before-top"></span><span class="arrow-before-bottom"></span>
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="36px" viewBox="0 0 36 36" version="1.1">
                     <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
                     <title>On Progress</title>
@@ -239,7 +239,7 @@
                 </section>
                 <!-- Step-2 -->
                 <div class="fusion-builder-row">
-                    <section class="step-2">
+                    <section class="step-2 hidden">
                         <h4 class="steph2">Current Benchmark Rating</h4>
                         <div class="current-benchmark-rating">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="74px" height="74px" viewBox="0 0 74 74" version="1.1">
@@ -409,7 +409,7 @@
                         </div>
                     </section>
                     <!-- Step-3 -->
-                    <section class="step-3">
+                    <section class="step-3 hidden">
                         <h5>Fill In Optional Parameters</h5>
                         <p>Insert data here will increase the accuracy of your ROI results</p>
                         <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 skip-btn-wrapper">
@@ -562,127 +562,129 @@
             </div>
             <!-- Step-4 Results -->
             <div class="fusion-builder-row">
-                <div class="inner-border step-4">
-                    <div class="result-data">
-                        <h3>Your ROI in 4 years will be</h3>
-                        <div class="result-data-value">2,23 %</div>
-                    </div>
-                    <!-- Table -->
-                    <div class="result-table-block">
-                        <table>
-                            <caption>Your Cost Breakdown</caption>
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>2018</th>
-                                    <th>2019</th>
-                                    <th>2020</th>
-                                    <th>2021</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Cost of absenteeism due to illness</td>
-                                    <td><input id="result1" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result2" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result3" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result4" readonly="readonly" type="text" value="0" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Cost of medical claims</td>
-                                    <td><input id="result5" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result6" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result7" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result8" readonly="readonly" type="text" value="0" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Overtime cost as a result of illness</td>
-                                    <td><input id="result9" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result10" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result11" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result12" readonly="readonly" type="text" value="0" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Cost of recruitment for replacements due to illness</td>
-                                    <td><input id="result13" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result14" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result15" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result16" readonly="readonly" type="text" value="0" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Cost of lost productivity due to illness (presenteeism)</td>
-                                    <td><input id="result17" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result18" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result19" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result20" readonly="readonly" type="text" value="0" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Cost of employee disengagement due to illness</td>
-                                    <td><input id="result21" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result22" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result23" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result24" readonly="readonly" type="text" value="0" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Medical insurance costs</td>
-                                    <td><input id="result25" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result26" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result27" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result28" readonly="readonly" type="text" value="0" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Other health / medical benefits cost</td>
-                                    <td><input id="result29" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result30" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result31" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result32" readonly="readonly" type="text" value="0" /></td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td>
-                                        <p class="blue-text">Discrete annual ROI</p>
-                                        (ROI on a year-on-year basis)
-                                    </td>
-                                    <td></td>
-                                    <td><input id="result33" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result34" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result35" readonly="readonly" type="text" value="0" /></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="yellow-text">Cumulative ROI</p>
-                                        (ROI over the entire period for which information is entered)
-                                    </td>
-                                    <td></td>
-                                    <td><input id="result36" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result37" readonly="readonly" type="text" value="0" /></td>
-                                    <td><input id="result38" readonly="readonly" type="text" value="0" /></td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                    <!-- Form -->
-                    <form class="email-result">
-                        <p>Would you like a copy of this report?</p>
-                        <div class="checkbox-wrapper">
-                            <label class="checkbox-container">I would like to send these results to others<br>
-                                <input type="checkbox" class="checkbox" name="" value="Boat" checked>
-                                <span class="checkmark"></span>
-                            </label>
+                <div class="inner-border">
+                    <section class="step-4 hidden">
+                        <div class="result-data">
+                            <h3>Your ROI in 4 years will be</h3>
+                            <div class="result-data-value">2,23 %</div>
                         </div>
-                        <div class="email-result-inputs row">
-                            <input type="text" placeholder="First Name">
-                            <input type="text" placeholder="Last Name">
-                            <input type="email" placeholder="Enter Email Address">
+                        <!-- Table -->
+                        <div class="result-table-block">
+                            <table>
+                                <caption>Your Cost Breakdown</caption>
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>2018</th>
+                                        <th>2019</th>
+                                        <th>2020</th>
+                                        <th>2021</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Cost of absenteeism due to illness</td>
+                                        <td><input id="result1" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result2" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result3" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result4" readonly="readonly" type="text" value="0" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cost of medical claims</td>
+                                        <td><input id="result5" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result6" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result7" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result8" readonly="readonly" type="text" value="0" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Overtime cost as a result of illness</td>
+                                        <td><input id="result9" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result10" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result11" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result12" readonly="readonly" type="text" value="0" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cost of recruitment for replacements due to illness</td>
+                                        <td><input id="result13" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result14" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result15" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result16" readonly="readonly" type="text" value="0" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cost of lost productivity due to illness (presenteeism)</td>
+                                        <td><input id="result17" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result18" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result19" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result20" readonly="readonly" type="text" value="0" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cost of employee disengagement due to illness</td>
+                                        <td><input id="result21" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result22" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result23" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result24" readonly="readonly" type="text" value="0" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Medical insurance costs</td>
+                                        <td><input id="result25" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result26" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result27" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result28" readonly="readonly" type="text" value="0" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Other health / medical benefits cost</td>
+                                        <td><input id="result29" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result30" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result31" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result32" readonly="readonly" type="text" value="0" /></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td>
+                                            <p class="blue-text">Discrete annual ROI</p>
+                                            (ROI on a year-on-year basis)
+                                        </td>
+                                        <td></td>
+                                        <td><input id="result33" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result34" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result35" readonly="readonly" type="text" value="0" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="yellow-text">Cumulative ROI</p>
+                                            (ROI over the entire period for which information is entered)
+                                        </td>
+                                        <td></td>
+                                        <td><input id="result36" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result37" readonly="readonly" type="text" value="0" /></td>
+                                        <td><input id="result38" readonly="readonly" type="text" value="0" /></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
-                        <div class="add-contact-btn">
-                            <button id="add_contact_btn">+ ADD ADDITIONAL CONTACT</button>
-                        </div>
-                        <div class="mail-btn">
-                            <button type="submit" id="mail_btn" class="btn btn-success">SEND A COPY OF THE REPORT TO MY EMAIL</button>
-                        </div>
-                    </form>
+                        <!-- Form -->
+                        <form class="email-result">
+                            <p>Would you like a copy of this report?</p>
+                            <div class="checkbox-wrapper">
+                                <label class="checkbox-container">I would like to send these results to others<br>
+                                    <input type="checkbox" class="checkbox" name="" value="Boat" checked>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="email-result-inputs row">
+                                <input type="text" placeholder="First Name">
+                                <input type="text" placeholder="Last Name">
+                                <input type="email" placeholder="Enter Email Address">
+                            </div>
+                            <div class="add-contact-btn">
+                                <button id="add_contact_btn">+ ADD ADDITIONAL CONTACT</button>
+                            </div>
+                            <div class="mail-btn">
+                                <button type="submit" id="mail_btn" class="btn btn-success">SEND A COPY OF THE REPORT TO MY EMAIL</button>
+                            </div>
+                        </form>
+                    </section>
                 </div>
 
             </div>

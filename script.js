@@ -15,23 +15,154 @@
      });
  });
 
- //  function readMoreBtn() {
- //      var dots = document.getElementById("dots");
- //      var moreText = document.getElementById("more");
- //      var btnText = document.getElementById("myBtn");
+ //  Show/hide steps evants
 
+ // UI
+ let bench_btn = document.getElementById("bench_btn");
+ let fill_optional_btn = document.getElementById("fill_optional_btn");
+ let skip_to_results_btn = document.getElementById("skip_to_results_btn");
+ let skip_to_results_btn2 = document.getElementById("skip_to_results_btn2");
+ let compute_results = document.getElementById("compute_results");
+ let section1 = document.querySelector(".step-1");
+ let section2 = document.querySelector(".step-2");
+ let section3 = document.querySelector(".step-3");
+ let section4 = document.querySelector(".step-4");
+ let breadcrumb_step1 = document.getElementById("breadcrumb_step1");
+ let breadcrumb_step2 = document.getElementById("breadcrumb_step2");
+ let breadcrumb_step3 = document.getElementById("breadcrumb_step3");
+ let breadcrumb_step4 = document.getElementById("breadcrumb_step4");
 
- //      if (dots.style.display === "none") {
- //          dots.style.display = "inline";
- //          dots.style.display = "transition: all 3.2s";
- //          btnText.innerHTML = "Read more";
- //          moreText.style.display = "none";
- //      } else {
- //          dots.style.display = "none";
- //          btnText.innerHTML = "Read less";
- //          moreText.style.display = "inline";
- //      }
- //  }
+ bench_btn.addEventListener("click", (e) => {
+     section1.classList.add("hidden");
+     section2.classList.remove("hidden");
+     breadcrumb_step1.classList.add("passed");
+     breadcrumb_step1.classList.remove("active");
+     if (breadcrumb_step3.classList.contains('active') || breadcrumb_step4.classList.contains('active')) {
+         breadcrumb_step2.classList.add("passed");
+     } else {
+         breadcrumb_step2.classList.add("active");
+     }
+
+     breadcrumb_step2.classList.add("current-step");
+     breadcrumb_step1.classList.remove("current-step");
+     breadcrumb_step3.classList.remove("current-step");
+     breadcrumb_step4.classList.remove("current-step");
+     window.scrollTo(0, 0);
+ });
+
+ fill_optional_btn.addEventListener("click", (e) => {
+     section2.classList.add("hidden");
+     section3.classList.remove("hidden");
+     breadcrumb_step2.classList.add("passed");
+     breadcrumb_step2.classList.remove("active");
+     if (breadcrumb_step4.classList.contains('active')) {
+         breadcrumb_step3.classList.add("passed");
+     } else {
+         breadcrumb_step3.classList.add("active");
+     }
+     breadcrumb_step3.classList.add("current-step");
+     breadcrumb_step1.classList.remove("current-step");
+     breadcrumb_step2.classList.remove("current-step");
+     breadcrumb_step4.classList.remove("current-step");
+     window.scrollTo(0, 0);
+ });
+
+ compute_results.addEventListener("click", (e) => {
+     section3.classList.add("hidden");
+     section4.classList.remove("hidden");
+     breadcrumb_step3.classList.add("passed");
+     breadcrumb_step3.classList.remove("active");
+     breadcrumb_step4.classList.add("active");
+     breadcrumb_step4.classList.add("current-step");
+     breadcrumb_step1.classList.remove("current-step");
+     breadcrumb_step2.classList.remove("current-step");
+     breadcrumb_step3.classList.remove("current-step");
+     window.scrollTo(0, 0);
+ });
+
+ skip_to_results_btn.addEventListener("click", (e) => {
+     section2.classList.add("hidden");
+     section4.classList.remove("hidden");
+     breadcrumb_step2.classList.add("passed");
+     breadcrumb_step3.classList.add("passed");
+     breadcrumb_step2.classList.remove("active");
+     breadcrumb_step4.classList.add("active");
+     breadcrumb_step4.classList.add("current-step");
+     breadcrumb_step1.classList.remove("current-step");
+     breadcrumb_step2.classList.remove("current-step");
+     breadcrumb_step3.classList.remove("current-step");
+     window.scrollTo(0, 0);
+ });
+
+ skip_to_results_btn2.addEventListener("click", (e) => {
+     section3.classList.add("hidden");
+     section4.classList.remove("hidden");
+     breadcrumb_step3.classList.add("passed");
+     breadcrumb_step3.classList.remove("active");
+     breadcrumb_step4.classList.add("active");
+     breadcrumb_step4.classList.add("current-step");
+     breadcrumb_step1.classList.remove("current-step");
+     breadcrumb_step2.classList.remove("current-step");
+     breadcrumb_step3.classList.remove("current-step");
+     window.scrollTo(0, 0);
+ });
+
+ breadcrumb_step1.addEventListener("click", (e) => {
+     breadcrumb_step1.classList.add("current-step");
+     breadcrumb_step2.classList.remove("current-step");
+     breadcrumb_step3.classList.remove("current-step");
+     breadcrumb_step4.classList.remove("current-step");
+     if (breadcrumb_step1.classList.contains('passed') || breadcrumb_step1.classList.contains('active')) {
+         section1.classList.remove("hidden");
+         section2.classList.add("hidden");
+         section3.classList.add("hidden");
+         section4.classList.add("hidden");
+         window.scrollTo(0, 0);
+     }
+ });
+
+ breadcrumb_step2.addEventListener("click", (e) => {
+     if (breadcrumb_step2.classList.contains('passed') || breadcrumb_step2.classList.contains('active')) {
+         section2.classList.remove("hidden");
+         section1.classList.add("hidden");
+         section3.classList.add("hidden");
+         section4.classList.add("hidden");
+         breadcrumb_step2.classList.add("current-step");
+         breadcrumb_step1.classList.remove("current-step");
+         breadcrumb_step3.classList.remove("current-step");
+         breadcrumb_step4.classList.remove("current-step");
+         window.scrollTo(0, 0);
+     }
+ });
+
+ breadcrumb_step3.addEventListener("click", (e) => {
+     if (breadcrumb_step3.classList.contains('passed') || breadcrumb_step3.classList.contains('active')) {
+         section3.classList.remove("hidden");
+         section1.classList.add("hidden");
+         section2.classList.add("hidden");
+         section4.classList.add("hidden");
+         breadcrumb_step3.classList.add("current-step");
+         breadcrumb_step1.classList.remove("current-step");
+         breadcrumb_step2.classList.remove("current-step");
+         breadcrumb_step4.classList.remove("current-step");
+         window.scrollTo(0, 0);
+     }
+ });
+
+ breadcrumb_step4.addEventListener("click", (e) => {
+     if (breadcrumb_step4.classList.contains('passed') || breadcrumb_step4.classList.contains('active')) {
+         section4.classList.remove("hidden");
+         section1.classList.add("hidden");
+         section2.classList.add("hidden");
+         section3.classList.add("hidden");
+         breadcrumb_step4.classList.add("current-step");
+         breadcrumb_step1.classList.remove("current-step");
+         breadcrumb_step2.classList.remove("current-step");
+         breadcrumb_step3.classList.remove("current-step");
+         window.scrollTo(0, 0);
+     }
+ });
+
 
  function showhidediv() {
 

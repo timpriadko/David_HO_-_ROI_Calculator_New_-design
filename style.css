@@ -73,6 +73,10 @@ button:hover {
     transition: all 0.5s;
 }
 
+.hidden {
+    display: none;
+}
+
 
 /* ------------------------------------------------------------------------------- */
 
@@ -149,10 +153,6 @@ button:hover {
 
 
 /* Step-1 */
-
-p {
-    line-height: 1;
-}
 
 
 /* Breadcrumbs */
@@ -257,12 +257,15 @@ p {
     border: 1px solid#d5d5d5;
 }
 
-.flat a.active,
 .flat a:hover,
-.flat a:hover:after,
-.flat a.active:after,
-.active.arrow-before-top,
-.active.arrow-before-bottom {
+.flat a:hover:after {
+    background: #fff;
+}
+
+.flat a.current-step,
+.flat a.current-step:after,
+.current-step.arrow-before-top,
+.current-step.arrow-before-bottom {
     background: #fff;
 }
 
@@ -370,6 +373,10 @@ p {
     padding-right: 0;
 }
 
+.step-1-selects .selects-year .select-wrapper p {
+    line-height: 1;
+}
+
 .step-1-selects .selects-year .select-wrapper:after {
     top: 33px;
     right: 30px;
@@ -419,10 +426,6 @@ p {
 
 
 /* Step-2 */
-
-.step-2 {
-    padding-top: 55px;
-}
 
 .current-benchmark-rating {
     display: flex;
@@ -474,7 +477,6 @@ p {
 
 .step-2-data {
     padding-top: 50px;
-    padding-bottom: 50px;
 }
 
 .rating-year-row {
@@ -630,10 +632,6 @@ p {
 
 /* Step-3 */
 
-.step-3 {
-    padding-top: 55px;
-}
-
 .step-3 h5 {
     text-align: center;
     font-size: 36px;
@@ -659,7 +657,6 @@ p {
 .step-3 .skip-btn-wrapper,
 .compute-btn {
     margin-top: 40px;
-    margin-bottom: 60px;
     margin-left: auto;
     margin-right: auto;
 }
