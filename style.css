@@ -624,10 +624,19 @@ input {
     width: 100%;
 }
 
+.cont_list_select_mate:after {
+    position: absolute;
+    top: -10px;
+    right: 35px;
+    padding-left: 20px;
+    line-height: 55px;
+    border-left: 1px solid #ededed;
+}
+
 .cont_select_int {
     position: absolute;
     left: 0px;
-    top: -38px;
+    top: -54px;
     z-index: 999;
     overflow: hidden;
     height: 0px;
@@ -636,7 +645,7 @@ input {
     padding: 0px;
     margin-bottom: 0px;
     margin-top: 0px;
-    border-radius: 0px 0px 20px 20px;
+    border-radius: 30px 30px 30px 30px;
     box-shadow: 1px 4px 10px -2px rgba(0, 0, 0, 0.2);
     transition: all 375ms ease-in-out;
 }
@@ -644,13 +653,17 @@ input {
 .cont_select_int li {
     position: relative;
     width: 100%;
-    border-bottom: 1px solid #E0E0E0;
     list-style-type: none;
-    padding: 10px 30px;
+    padding: 20px 30px;
     margin: 0px;
     transition: all 275ms ease-in-out;
     display: block;
     cursor: pointer;
+    height: 55px;
+}
+
+.cont_select_int li:first-child {
+    border-bottom: 1px solid #E0E0E0;
 }
 
 .cont_select_int li:last-child {
@@ -658,8 +671,7 @@ input {
     border-bottom: 0px;
 }
 
-
-/* .cont_select_int li:hover {
+.cont_select_int li:hover {
     background-color: #fff;
 }
 
@@ -667,20 +679,21 @@ input {
     background-color: #fff;
 }
 
-.cont_select_int .active ul:first-child {
-    background-color: #f5fafe;
-}
-
-.cont_select_int ul:first-child:hover {
-    background-color: #f5fafe;
-} */
-
 .selecionado_opcion {
     padding: 20px 30px;
     width: 96%;
     display: block;
     margin: 0px;
     cursor: pointer;
+}
+
+.horizontal-line {
+    position: absolute;
+    height: 55px;
+    border-left: 1px solid #ededed;
+    top: 0px;
+    left: 73%;
+    z-index: 1000;
 }
 
 
