@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" href="reset_and_bootstrap-grid.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans%7CRoboto:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 </head>
 
 <body>
@@ -142,8 +141,10 @@
                         <div class="row step-1-selects">
                             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                 <div class="">Select your industry</div>
-                                <div class="select-wrapper">
-                                    <select id="select_industry" class="myselect" onchange="show_btn();">
+                                <div class="select-wrapper select-industry">
+                                    <div class="select_mate" data-mate-select="active">
+                                        <span class="select-back-cover"></span>
+                                        <select name="" onchange="show_btn();" onclick="return false;" id="select_industry" class="myselect">
                                             <option value="">Select the industry your company is in</option>
                                             <option value="1">Accommodation and food services</option>
                                             <option value="2">Administrative and support services</option>
@@ -159,40 +160,72 @@
                                             <option value="12">Transportation and storage</option>
                                             <option value="13">Wholesale trade</option>
                                             <option value="1">Current Year (2018)</option>
-                                    </select>
+                                        </select>
+                                        <p class="selecionado_opcion" onclick="open_select(this)"></p><span class="horizontal-line"></span><span onclick="open_select(this)" class="icon_select_mate"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                                                <path d="M0-.75h24v24H0z" fill="none"/>
+                                            </svg></span>
+                                        <div class="cont_list_select_mate">
+                                            <ul class="cont_select_int"> </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="row col-lg-6 col-md-12 col-sm-12 col-xs-12 selects-year">
-                                <div class="col-md-6 col-sm-12 col-xs-12 select-wrapper">
+                                <div class="col-md-6 col-sm-12 col-xs-12 selects-year-inner">
                                     <p>Benchmark Year</p>
-                                    <select id="" class="myselect" onchange="show_btn();">
-                                            <option value="1">Current Year (2018)</option>
-                                            <option value="2">2017</option>
-                                            <option value="3">2016</option>
-                                            <option value="4">2015</option>
-                                            <option value="5">2014</option>
-                                            <option value="6">2013</option>
-                                            <option value="7">2012</option>
-                                            <option value="8">2011</option>
-                                            <option value="9">2010</option>
-                                            <option value="10">2009</option>
-                                        </select>
+                                    <div class="select-wrapper">
+                                        <div class="select_mate" data-mate-select="active">
+                                            <span class="select-back-cover"></span>
+                                            <select name="" onchange="show_btn();" onclick="return false;" id="" class="">
+                                                <option value="1">Current Year (2018)</option>
+                                                <option value="2">2017</option>
+                                                <option value="3">2016</option>
+                                                <option value="4">2015</option>
+                                                <option value="5">2014</option>
+                                                <option value="6">2013</option>
+                                                <option value="7">2012</option>
+                                                <option value="8">2011</option>
+                                                <option value="9">2010</option>
+                                                <option value="10">2009</option>
+                                            </select>
+                                            <p class="selecionado_opcion" onclick="open_select(this)"></p><span class="horizontal-line"></span><span onclick="open_select(this)" class="icon_select_mate"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                                                    <path d="M0-.75h24v24H0z" fill="none"/>
+                                                </svg></span>
+                                            <div class="cont_list_select_mate">
+                                                <ul class="cont_select_int"> </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-6 col-sm-12 col-xs-12 select-wrapper">
+                                <div class="col-md-6 col-sm-12 col-xs-12 selects-year-inner">
                                     <p>Calculate ROI Starting from</p>
-                                    <select id="" class="myselect" onchange="show_btn();">
-                                        <option value="1">Current Year (2018)</option>
-                                        <option value="2">2017</option>
-                                        <option value="3">2016</option>
-                                        <option value="4">2015</option>
-                                        <option value="5">2014</option>
-                                        <option value="6">2013</option>
-                                        <option value="7">2012</option>
-                                        <option value="8">2011</option>
-                                        <option value="9">2010</option>
-                                        <option value="10">2009</option>
-                                    </select>
+                                    <div class="select-wrapper">
+                                        <div class="select_mate" data-mate-select="active">
+                                            <span class="select-back-cover"></span>
+                                            <select name="" onchange="show_btn();" onclick="return false;" id="" class="">
+                                                <option value="1">Current Year (2018)</option>
+                                                <option value="2">2017</option>
+                                                <option value="3">2016</option>
+                                                <option value="4">2015</option>
+                                                <option value="5">2014</option>
+                                                <option value="6">2013</option>
+                                                <option value="7">2012</option>
+                                                <option value="8">2011</option>
+                                                <option value="9">2010</option>
+                                                <option value="10">2009</option>
+                                            </select>
+                                            <p class="selecionado_opcion" onclick="open_select(this)"></p><span class="horizontal-line"></span><span onclick="open_select(this)" class="icon_select_mate"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                                                    <path d="M0-.75h24v24H0z" fill="none"/>
+                                                </svg></span>
+                                            <div class="cont_list_select_mate">
+                                                <ul class="cont_select_int"> </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -285,42 +318,82 @@
                                 <div class="row-with-header">
                                     <div class="row-header">
                                         <hr>
-                                        <div class="row-header-caption row-header-caption-chacked">Expected overall level of employee health</div>
+                                        <div class="checkbox-wrapper">
+                                            <label class="checkbox-container">Expected overall level of employee health<br>
+                                                <input type="checkbox" class="checkbox" name="" value="" checked>
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
                                     </div>
                                     <div class="step-2-input-row row">
                                         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
                                             <input id="text_6" readonly="readonly" type="text" value="Below Average" />
                                         </div>
-                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 select-wrapper">
-                                            <select id="selec_1" class="myselect ligth-blue-bg">
-                                                <option value="0">Please Select</option>
-                                                <option value="1">Below Average</option>
-                                                <option value="2">Good</option>
-                                                <option value="3">Very Good</option>
-                                            </select>
+                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                            <div class="select_mate ligth-blue-bg" data-mate-select="active">
+                                                <span class="select-back-cover"></span>
+                                                <select name="" onchange="" onclick="return false;" id="selec_1" class="myselect">
+                                                    <option value="0">Please Select</option>
+                                                    <option value="1">Below Average</option>
+                                                    <option value="2">Good</option>
+                                                    <option value="3">Very Good</option>
+                                                </select>
+                                                <p class="selecionado_opcion" onclick="open_select(this)"></p><span class="horizontal-line"></span><span onclick="open_select(this)" class="icon_select_mate"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                                                        <path d="M0-.75h24v24H0z" fill="none"/>
+                                                    </svg></span>
+                                                <div class="cont_list_select_mate">
+                                                    <ul class="cont_select_int"> </ul>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 select-wrapper">
-                                            <select id="selec_2" class="myselect">
-                                                <option value="0">Please Select</option>
-                                                <option value="1">Below Average</option>
-                                                <option value="2">Good</option>
-                                                <option value="3">Very Good</option>
-                                            </select>
+                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                            <div class="select_mate gray-bg" data-mate-select="active">
+                                                <span class="select-back-cover"></span>
+                                                <select name="" onchange="" onclick="return false;" id="selec_2" class="myselect">
+                                                    <option value="0">Please Select</option>
+                                                    <option value="1">Below Average</option>
+                                                    <option value="2">Good</option>
+                                                    <option value="3">Very Good</option>
+                                                </select>
+                                                <p class="selecionado_opcion" onclick="open_select(this)"></p><span class="horizontal-line"></span><span onclick="open_select(this)" class="icon_select_mate"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                                                        <path d="M0-.75h24v24H0z" fill="none"/>
+                                                    </svg></span>
+                                                <div class="cont_list_select_mate">
+                                                    <ul class="cont_select_int"> </ul>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 select-wrapper">
-                                            <select id="selec_3" class="myselect ligth-blue-bg">
-                                                <option value="0">Please Select</option>
-                                                <option value="1">Below Average</option>
-                                                <option value="2">Good</option>
-                                                <option value="3">Very Good</option>
-                                            </select>
+                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                            <div class="select_mate ligth-blue-bg" data-mate-select="active">
+                                                <span class="select-back-cover"></span>
+                                                <select name="" onchange="" onclick="return false;" id="selec_3" class="myselect">
+                                                    <option value="0">Please Select</option>
+                                                    <option value="1">Below Average</option>
+                                                    <option value="2">Good</option>
+                                                    <option value="3">Very Good</option>
+                                                </select>
+                                                <p class="selecionado_opcion" onclick="open_select(this)"></p><span class="horizontal-line"></span><span onclick="open_select(this)" class="icon_select_mate"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                                                        <path d="M0-.75h24v24H0z" fill="none"/>
+                                                    </svg></span>
+                                                <div class="cont_list_select_mate">
+                                                    <ul class="cont_select_int"> </ul>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row-with-header">
                                     <div class="row-header">
                                         <hr>
-                                        <div class="row-header-caption row-header-caption-chacked">Number of Full Time Employees (Mandatory)</div>
+                                        <div class="checkbox-wrapper">
+                                            <label class="checkbox-container">Number of Full Time Employees (Mandatory)<br>
+                                                <input type="checkbox" class="checkbox" name="" value="" checked>
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
                                     </div>
                                     <div class="step-2-input-row row">
                                         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
