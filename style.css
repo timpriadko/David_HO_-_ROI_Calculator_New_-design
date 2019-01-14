@@ -823,15 +823,6 @@ button:hover {
     margin-bottom: 40px;
 }
 
-.step-3 h5:before {
-    content: "\f164";
-    font-family: FontAwesome;
-    color: #000;
-    padding: 0px 15px;
-    border-radius: 50%;
-    font-size: 33px;
-}
-
 .step-3 p {
     font-size: 14px;
     text-align: center;
