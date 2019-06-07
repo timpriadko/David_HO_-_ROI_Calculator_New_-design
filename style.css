@@ -103,11 +103,11 @@ button:hover {
     content: '%';
     font-size: 14px;
     position: absolute;
-    top: 28px;
+    top: 29px;
     right: 38px;
     padding-left: 20px;
     color: #9a9999;
-    line-height: 55px;
+    line-height: 53px;
     border-left: 1px solid #ededed;
     pointer-events: none;
 }
@@ -994,7 +994,7 @@ td:first-child {
 }
 
 .email-result-inputs input {
-    width: 27%;
+    width: 100%;
     margin-top: 20px;
 }
 
@@ -1092,4 +1092,26 @@ td:first-child {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+/********************* Validation styles *********************/
+.valid-error {
+    color: #f73737;
+    font-size: 1em;
+    margin-top: 10px;
+    margin-left: 25px;
+    transition: all 0.5s;
+}
+
+.step-2 .step-2-input-row .valid-error {
+    color: #f73737;
+    font-size: 1em;
+    margin-top: 10px;
+    margin-left: 25px;
+    transition: all 0.5s;
+}
+
+/********************* Email validation *********************/
+.is-required {
+    
 }

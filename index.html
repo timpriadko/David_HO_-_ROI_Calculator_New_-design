@@ -89,7 +89,7 @@
         </div>
         <div class="fusion-builder-row">
             <div class="inner-border">
-                <section class="step-1">
+                <section class="step-1 hidden">
                     <!-- Read More/Less -->
                     <div class="calculation-description">
                         <h2>Calculating your ROI</h2>
@@ -178,17 +178,17 @@
                                     <div class="select-wrapper">
                                         <div class="select_mate" data-mate-select="active">
                                             <span class="select-back-cover"></span>
-                                            <select name="" onchange="show_btn();" onclick="return false;" id="" class="">
-                                                <option value="1">Current Year (2018)</option>
-                                                <option value="2">2017</option>
-                                                <option value="3">2016</option>
-                                                <option value="4">2015</option>
-                                                <option value="5">2014</option>
-                                                <option value="6">2013</option>
-                                                <option value="7">2012</option>
-                                                <option value="8">2011</option>
-                                                <option value="9">2010</option>
-                                                <option value="10">2009</option>
+                                            <select name="" onchange="show_btn();" onclick="return false;" id="benchmark-year-select" class="">
+                                                <option value="1">Current Year ()</option>
+                                                <option value="2"></option>
+                                                <option value="3"></option>
+                                                <option value="4"></option>
+                                                <option value="5"></option>
+                                                <option value="6"></option>
+                                                <option value="7"></option>
+                                                <option value="8"></option>
+                                                <option value="9"></option>
+                                                <option value="10"></option>
                                             </select>
                                             <p class="selecionado_opcion" onclick="open_select(this)"></p><span class="horizontal-line"></span><span onclick="open_select(this)" class="icon_select_mate"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
@@ -205,17 +205,17 @@
                                     <div class="select-wrapper">
                                         <div class="select_mate" data-mate-select="active">
                                             <span class="select-back-cover"></span>
-                                            <select name="" onchange="show_btn();" onclick="return false;" id="" class="">
-                                                <option value="1">Current Year (2018)</option>
-                                                <option value="2">2017</option>
-                                                <option value="3">2016</option>
-                                                <option value="4">2015</option>
-                                                <option value="5">2014</option>
-                                                <option value="6">2013</option>
-                                                <option value="7">2012</option>
-                                                <option value="8">2011</option>
-                                                <option value="9">2010</option>
-                                                <option value="10">2009</option>
+                                            <select name="" onchange="show_btn();" onclick="return false;" id="calculate-roi-select" class="">
+                                                <option value="1">Current Year ()</option>
+                                                <option value="2"></option>
+                                                <option value="3"></option>
+                                                <option value="4"></option>
+                                                <option value="5"></option>
+                                                <option value="6"></option>
+                                                <option value="7"></option>
+                                                <option value="8"></option>
+                                                <option value="9"></option>
+                                                <option value="10"></option>
                                             </select>
                                             <p class="selecionado_opcion" onclick="open_select(this)"></p><span class="horizontal-line"></span><span onclick="open_select(this)" class="icon_select_mate"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
@@ -302,15 +302,15 @@
                                     <p>(Mandatory)</p>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 visible-lg-block visible-md-block">
-                                    <div class="rating-year rating-year-blue">2019</div>
+                                    <div class="rating-year rating-year-blue next-year"></div>
                                     <p>(Mandatory)</p>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 visible-lg-block visible-md-block">
-                                    <div class="rating-year">2020</div>
+                                    <div class="rating-year year-after-next year-after-next"></div>
                                     <p>(Mandatory)</p>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 visible-lg-block visible-md-block">
-                                    <div class="rating-year rating-year-blue">2021</div>
+                                    <div class="rating-year rating-year-blue 2years-after-next"></div>
                                     <p>(Optional)</p>
                                 </div>
                             </div>
@@ -494,15 +494,15 @@
                                 <p>(Mandatory)</p>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 visible-lg-block visible-md-block">
-                                <div class="rating-year rating-year-blue">2019</div>
+                                <div class="rating-year rating-year-blue next-year"></div>
                                 <p>(Mandatory)</p>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 visible-lg-block visible-md-block">
-                                <div class="rating-year">2020</div>
+                                <div class="rating-year year-after-next"></div>
                                 <p>(Mandatory)</p>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 visible-lg-block visible-md-block">
-                                <div class="rating-year rating-year-blue">2021</div>
+                                <div class="rating-year rating-year-blue 2years-after-next"></div>
                                 <p>(Optional)</p>
                             </div>
                         </div>
@@ -528,7 +528,7 @@
                             <div class="row-with-header">
                                 <div class="row-header">
                                     <hr>
-                                    <div class="row-header-caption">Average cost per Full Time Employee in medical claims per annum (Mandatory)</div>
+                                    <div class="row-header-caption">Average cost per Full Time Employee in medical claims per annum</div>
                                 </div>
                                 <div class="step-2-input-row row">
                                     <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
@@ -636,7 +636,7 @@
             <!-- Step-4 Results -->
             <div class="fusion-builder-row">
                 <div class="inner-border">
-                    <section class="step-4 hidden">
+                    <section class="step-4">
                         <div class="result-data">
                             <h3>Your ROI in 4 years will be</h3>
                             <div class="result-data-value">2,23 %</div>
@@ -648,10 +648,10 @@
                                 <thead>
                                     <tr>
                                         <th></th>
-                                        <th>2018</th>
-                                        <th>2019</th>
-                                        <th>2020</th>
-                                        <th>2021</th>
+                                        <th class="current-year">2018</th>
+                                        <th class="next-year">2019</th>
+                                        <th class="year-after-next">2020</th>
+                                        <th class="2years-after-next">2021</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -746,12 +746,12 @@
                                 </label>
                             </div>
                             <div class="email-result-inputs row">
-                                <input type="text" placeholder="First Name">
-                                <input type="text" placeholder="Last Name">
-                                <input type="email" placeholder="Enter Email Address">
+                                <div><input type="text" class="first_name" placeholder="First Name"></div>
+                                <div><input type="text" class="last_name" placeholder="Last Name"></div>
+                                <div><input type="email" class="email" placeholder="Enter Email Address"></div>
                             </div>
                             <div class="add-contact-btn">
-                                <button id="add_contact_btn">+ ADD ADDITIONAL CONTACT</button>
+                                <button type="button" id="add_contact_btn">+ ADD ADDITIONAL CONTACT</button>
                             </div>
                             <div class="mail-btn">
                                 <button type="submit" id="mail_btn" class="btn btn-success">SEND A COPY OF THE REPORT TO MY EMAIL</button>

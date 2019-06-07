@@ -1,6 +1,7 @@
  // Read more
 
  $(document).ready(function() {
+     // Read more
      $("#toggle").click(function() {
          var elem = $("#toggle").text();
          if (elem == "Read More") {
@@ -13,61 +14,422 @@
              $("#text").slideUp();
          }
      });
+
+    // Step-1 current year date/select
+    $("#benchmark-year-select").children().each(function(i) {
+        // console.log(this)
+        if (i === 0) {
+            $(this).text('Current Year ('+(new Date).getFullYear()+')');
+        } else {
+            $(this).text( +(new Date).getFullYear() - i );
+        }
+    });
+
+    $("#calculate-roi-select").children().each(function(i) {
+        if (i === 0) {
+            $(this).text('Current Year ('+(new Date).getFullYear()+')');
+        } else {
+            $(this).text( +(new Date).getFullYear() - i );
+        }
+    });
+    
+    // Init custom select
+    crear_select();
+
+    // Step-2/Step-3/Step-4 column header year
+    $(".current-year").text((new Date).getFullYear());
+    $(".next-year").text((new Date).getFullYear() + 1);
+    $(".year-after-next").text((new Date).getFullYear() + 2);
+    $(".2years-after-next").text((new Date).getFullYear() + 3);
+    
+    // Step-4 validation
+    var regEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    var email = $(".email");
+    var fist_name = $(".fist_name");
+    var last_name = $(".last_name");
+
+    // ADD ADDITIONAL CONTACT handler
+    $('#add_contact_btn').click(function(e) {
+        if ($('.email-result-inputs').length < 4) {
+            $('.email-result-inputs')[$('.email-result-inputs').length - 1].insertAdjacentHTML('afterend', '<div class="email-result-inputs row">' +
+            '<div><input type="text" class="first_name" placeholder="First Name"></div>' +
+            '<div><input type="text" class="last_name" placeholder="Last Name"></div>' +
+            '<div><input type="email" class="email" placeholder="Enter Email Address"></div>' +
+        '</div>')
+        }
+    })
+
+    // Submit handler
+    $('#mail_btn').click(function(event) {
+        event.preventDefault();
+        // // Required fields validation
+        $(".first_name").each(function(i) {
+            switch ($(this).val().length === 0) {
+                case true:
+                        if (!$(this).hasClass('is-required')) {
+                            $(this).addClass('is-required');
+                            $(this).parent().append('<div class="valid-error">This field is required</div>');
+                            $(this).css({'border-color' : '#ff0000', 'transition' : 'all 0.5s'});
+                        }
+                    break;
+                case false:
+                    if ($(this).next()) {
+                        if ($(this).hasClass('is-required')) {
+                            $(this).removeClass('is-required')
+                            $(this).next().remove();
+                            $(this).css({'border-color' : '', 'transition' : 'all 0.5s'});
+                        }
+                    }
+                    break;
+            }
+        });
+        $(".last_name").each(function(i) {
+            switch ($(this).val().length === 0) {
+                case true:
+                        if (!$(this).hasClass('is-required')) {
+                            $(this).addClass('is-required');
+                            $(this).parent().append('<div class="valid-error">This field is required</div>');
+                            $(this).css({'border-color' : '#ff0000', 'transition' : 'all 0.5s'});
+                        }
+                    break;
+                case false:
+                    if ($(this).next()) {
+                        if ($(this).hasClass('is-required')) {
+                            $(this).removeClass('is-required')
+                            $(this).next().remove();
+                            $(this).css({'border-color' : '', 'transition' : 'all 0.5s'});
+                        }
+                    }
+                    break;
+            }
+        });
+        // email validation
+        $(".email").each(function(i) {
+            // required validation
+            switch ($(this).val().length === 0) {
+                case true:
+                    if ($(this).next()) {
+                        if ($(this).hasClass('is-invalid')) {
+                            $(this).removeClass('is-invalid');
+                            $(this).next().remove();
+                        }
+                    }
+                    $(this).hasClass('is-required') ? '' : $(this).parent().append('<div class="valid-error">This field is required</div>');
+                    $(this).css({'border-color' : '#ff0000', 'transition' : 'all 0.5s'});
+                    break;
+                case false:
+                    if ($(this).next()) {
+                        if ($(this).hasClass('is-invalid')) {
+                            $(this).removeClass('is-invalid');
+                            $(this).next().remove();
+                        }
+                        if ($(this).hasClass('is-required')) {
+                            $(this).removeClass('is-required')
+                            $(this).next().remove();
+                        }
+                    }
+                    break;
+            }
+            // init email validation
+            if ($(this).val().length === 0) {
+                $(this).addClass("is-required");
+            } else if (regEmail.test($(this).val()) == false) {
+                if (!$(this).hasClass('is-invalid')) {
+                    $(this).addClass("is-invalid");
+                    $(this).parent().append('<div class="valid-error">Email is invalid</div>');
+                    $(this).css({'border-color' : '#ff0000', 'transition' : 'all 0.5s'});
+                }
+            } else {
+                $(this).removeClass("is-required");
+                $(this).removeClass("is-invalid");
+                $(this).next() ? $(this).next().remove() : '';
+                $(this).css({'border-color' : '', 'transition' : 'all 0.5s'});
+            }
+        });
+      });
  });
 
  //  Show/hide steps evants
 
  // UI
- let bench_btn = document.getElementById("bench_btn");
- let fill_optional_btn = document.getElementById("fill_optional_btn");
- let skip_to_results_btn = document.getElementById("skip_to_results_btn");
- let skip_to_results_btn2 = document.getElementById("skip_to_results_btn2");
- let compute_results = document.getElementById("compute_results");
- let section1 = document.querySelector(".step-1");
- let section2 = document.querySelector(".step-2");
- let section3 = document.querySelector(".step-3");
- let section4 = document.querySelector(".step-4");
- let breadcrumb_step1 = document.getElementById("breadcrumb_step1");
- let breadcrumb_step2 = document.getElementById("breadcrumb_step2");
- let breadcrumb_step3 = document.getElementById("breadcrumb_step3");
- let breadcrumb_step4 = document.getElementById("breadcrumb_step4");
+ var bench_btn = document.getElementById("bench_btn");
+ var fill_optional_btn = document.getElementById("fill_optional_btn");
+ var skip_to_results_btn = document.getElementById("skip_to_results_btn");
+ var skip_to_results_btn2 = document.getElementById("skip_to_results_btn2");
+ var compute_results = document.getElementById("compute_results");
+ var section1 = document.querySelector(".step-1");
+ var section2 = document.querySelector(".step-2");
+ var section3 = document.querySelector(".step-3");
+ var section4 = document.querySelector(".step-4");
+ var breadcrumb_step1 = document.getElementById("breadcrumb_step1");
+ var breadcrumb_step2 = document.getElementById("breadcrumb_step2");
+ var breadcrumb_step3 = document.getElementById("breadcrumb_step3");
+ var breadcrumb_step4 = document.getElementById("breadcrumb_step4");
 
- bench_btn.addEventListener("click", (e) => {
-     section1.classList.add("hidden");
-     section2.classList.remove("hidden");
-     breadcrumb_step1.classList.add("passed");
-     breadcrumb_step1.classList.remove("active");
-     if (breadcrumb_step3.classList.contains('active') || breadcrumb_step4.classList.contains('active')) {
-         breadcrumb_step2.classList.add("passed");
-     } else {
-         breadcrumb_step2.classList.add("active");
-     }
-
-     breadcrumb_step2.classList.add("current-step");
-     breadcrumb_step1.classList.remove("current-step");
-     breadcrumb_step3.classList.remove("current-step");
-     breadcrumb_step4.classList.remove("current-step");
-     window.scrollTo(0, 0);
+ bench_btn.addEventListener("click", function(e) {
+    switch (text_1.value.length === 0) {
+        case true:
+            text_1.parentElement.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_1.parentElement.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_1.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_1.parentElement.parentElement.lastElementChild.classList.contains('valid-error') ? text_1.parentElement.parentElement.lastElementChild.remove() : '';
+            text_1.style = "";
+            break;
+    }
+    switch (text_2.value.length === 0) {
+        case true:
+            text_2.parentElement.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_2.parentElement.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_2.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_2.parentElement.parentElement.lastElementChild.classList.contains('valid-error') ? text_2.parentElement.parentElement.lastElementChild.remove() : '';
+            text_2.style = "";
+            break;
+    }
+    switch (text_3.value.length === 0) {
+        case true:
+            text_3.parentElement.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_3.parentElement.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_3.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_3.parentElement.parentElement.lastElementChild.classList.contains('valid-error') ? text_3.parentElement.parentElement.lastElementChild.remove() : '';
+            text_3.style = "";
+            break;
+    }
+    switch (text_4.value.length === 0) {
+        case true:
+            text_4.parentElement.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_4.parentElement.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_4.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_4.parentElement.parentElement.lastElementChild.classList.contains('valid-error') ? text_4.parentElement.parentElement.lastElementChild.remove() : '';
+            text_4.style = "";
+            break;
+    }
+    if (text_1.value && text_2.value && text_3.value && text_4.value) {
+        section1.classList.add("hidden");
+        section2.classList.remove("hidden");
+        breadcrumb_step1.classList.add("passed");
+        breadcrumb_step1.classList.remove("active");
+        if (breadcrumb_step3.classList.contains('active') || breadcrumb_step4.classList.contains('active')) {
+            breadcrumb_step2.classList.add("passed");
+        } else {
+            breadcrumb_step2.classList.add("active");
+        }
+   
+        breadcrumb_step2.classList.add("current-step");
+        breadcrumb_step1.classList.remove("current-step");
+        breadcrumb_step3.classList.remove("current-step");
+        breadcrumb_step4.classList.remove("current-step");
+        window.scrollTo(0, 0);
+    }
  });
 
- fill_optional_btn.addEventListener("click", (e) => {
+ fill_optional_btn.addEventListener("click", function(e) {
+    // Validation - Number of Full Time Employees (Mandatory)
+    switch (text_7.value.length === 0) {
+        case true:
+            text_7.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_7.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_7.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_7.parentElement.lastElementChild.classList.contains('valid-error') ? text_7.parentElement.lastElementChild.remove() : '';
+            text_7.style = "";
+            break;
+    }
+    switch (text_8.value.length === 0) {
+        case true:
+            text_8.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_8.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_8.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_8.parentElement.lastElementChild.classList.contains('valid-error') ? text_8.parentElement.lastElementChild.remove() : '';
+            text_8.style = "";
+            break;
+    }
+    switch (text_9.value.length === 0) {
+        case true:
+            text_9.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_9.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_9.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_9.parentElement.lastElementChild.classList.contains('valid-error') ? text_9.parentElement.lastElementChild.remove() : '';
+            text_9.style = "";
+            break;
+    }
+    // Validation - Average annual salary per Full Time Employees (Mandatory)
+    switch (text_11.value.length === 0) {
+        case true:
+            text_11.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_11.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_11.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_11.parentElement.lastElementChild.classList.contains('valid-error') ? text_11.parentElement.lastElementChild.remove() : '';
+            text_11.style = "";
+            break;
+    }
+    switch (text_12.value.length === 0) {
+        case true:
+            text_12.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_12.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_12.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_12.parentElement.lastElementChild.classList.contains('valid-error') ? text_12.parentElement.lastElementChild.remove() : '';
+            text_12.style = "";
+            break;
+    }
+    switch (text_13.value.length === 0) {
+        case true:
+            text_13.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_13.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_13.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_13.parentElement.lastElementChild.classList.contains('valid-error') ? text_13.parentElement.lastElementChild.remove() : '';
+            text_13.style = "";
+            break;
+    }
+    // Validation - Working days per year (Mandatory)
+    switch (text_15.value.length === 0) {
+        case true:
+            text_15.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_15.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_15.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_15.parentElement.lastElementChild.classList.contains('valid-error') ? text_15.parentElement.lastElementChild.remove() : '';
+            text_15.style = "";
+            break;
+    }
+    switch (text_16.value.length === 0) {
+        case true:
+            text_16.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_16.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_16.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_16.parentElement.lastElementChild.classList.contains('valid-error') ? text_16.parentElement.lastElementChild.remove() : '';
+            text_16.style = "";
+            break;
+    }
+    switch (text_17.value.length === 0) {
+        case true:
+            text_17.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_17.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_17.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_17.parentElement.lastElementChild.classList.contains('valid-error') ? text_17.parentElement.lastElementChild.remove() : '';
+            text_17.style = "";
+            break;
+    }
+    // Validation - Average annual medical insurance spend per employee (Mandatory)
+    switch (text_19.value.length === 0) {
+        case true:
+            text_19.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_19.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_19.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_19.parentElement.lastElementChild.classList.contains('valid-error') ? text_19.parentElement.lastElementChild.remove() : '';
+            text_19.style = "";
+            break;
+    }
+    switch (text_20.value.length === 0) {
+        case true:
+            text_20.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_20.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_20.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_20.parentElement.lastElementChild.classList.contains('valid-error') ? text_20.parentElement.lastElementChild.remove() : '';
+            text_20.style = "";
+            break;
+    }
+    switch (text_21.value.length === 0) {
+        case true:
+            text_21.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_21.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_21.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_21.parentElement.lastElementChild.classList.contains('valid-error') ? text_21.parentElement.lastElementChild.remove() : '';
+            text_21.style = "";
+            break;
+    }
+    if (text_11.value && text_12.value && text_13.value && text_15.value && text_16.value && text_17.value && text_19.value && text_21.value && text_21.value) {
+        section2.classList.add("hidden");
+        section3.classList.remove("hidden");
+        breadcrumb_step2.classList.add("passed");
+        breadcrumb_step2.classList.remove("active");
+        if (breadcrumb_step4.classList.contains('active')) {
+            breadcrumb_step3.classList.add("passed");
+        } else {
+            breadcrumb_step3.classList.add("active");
+        }
+        breadcrumb_step3.classList.add("current-step");
+        breadcrumb_step1.classList.remove("current-step");
+        breadcrumb_step2.classList.remove("current-step");
+        breadcrumb_step4.classList.remove("current-step");
+        window.scrollTo(0, 0);
+    }
+    
+ });
+
+ compute_results.addEventListener("click", function(e) {
+    switch (text_23.value.length === 0) {
+        case true:
+            text_23.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_23.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_23.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_23.parentElement.lastElementChild.classList.contains('valid-error') ? text_23.parentElement.lastElementChild.remove() : '';
+            text_23.style = "";
+            break;
+    }
+    switch (text_24.value.length === 0) {
+        case true:
+            text_24.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_24.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_24.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_24.parentElement.lastElementChild.classList.contains('valid-error') ? text_24.parentElement.lastElementChild.remove() : '';
+            text_24.style = "";
+            break;
+    }
+    switch (text_25.value.length === 0) {
+        case true:
+            text_25.parentElement.lastElementChild.classList.contains('valid-error') ? '' : text_25.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+            text_25.style = 'border-color: #ff0000; transition: all 0.5s;'
+            break;
+        case false:
+            text_25.parentElement.lastElementChild.classList.contains('valid-error') ? text_25.parentElement.lastElementChild.remove() : '';
+            text_25.style = "";
+            break;
+    }
+    if (text_23.value && text_24.value && text_25.value) {
+        section3.classList.add("hidden");
+        section4.classList.remove("hidden");
+        breadcrumb_step3.classList.add("passed");
+        breadcrumb_step3.classList.remove("active");
+        breadcrumb_step4.classList.add("active");
+        breadcrumb_step4.classList.add("current-step");
+        breadcrumb_step1.classList.remove("current-step");
+        breadcrumb_step2.classList.remove("current-step");
+        breadcrumb_step3.classList.remove("current-step");
+        window.scrollTo(0, 0);
+    }    
+ });
+
+ skip_to_results_btn.addEventListener("click", function(e) {
      section2.classList.add("hidden");
-     section3.classList.remove("hidden");
+     section4.classList.remove("hidden");
      breadcrumb_step2.classList.add("passed");
+     breadcrumb_step3.classList.add("passed");
      breadcrumb_step2.classList.remove("active");
-     if (breadcrumb_step4.classList.contains('active')) {
-         breadcrumb_step3.classList.add("passed");
-     } else {
-         breadcrumb_step3.classList.add("active");
-     }
-     breadcrumb_step3.classList.add("current-step");
+     breadcrumb_step4.classList.add("active");
+     breadcrumb_step4.classList.add("current-step");
      breadcrumb_step1.classList.remove("current-step");
      breadcrumb_step2.classList.remove("current-step");
-     breadcrumb_step4.classList.remove("current-step");
+     breadcrumb_step3.classList.remove("current-step");
      window.scrollTo(0, 0);
  });
 
- compute_results.addEventListener("click", (e) => {
+ skip_to_results_btn2.addEventListener("click", function(e) {
      section3.classList.add("hidden");
      section4.classList.remove("hidden");
      breadcrumb_step3.classList.add("passed");
@@ -80,34 +442,7 @@
      window.scrollTo(0, 0);
  });
 
- skip_to_results_btn.addEventListener("click", (e) => {
-     section2.classList.add("hidden");
-     section4.classList.remove("hidden");
-     breadcrumb_step2.classList.add("passed");
-     breadcrumb_step3.classList.add("passed");
-     breadcrumb_step2.classList.remove("active");
-     breadcrumb_step4.classList.add("active");
-     breadcrumb_step4.classList.add("current-step");
-     breadcrumb_step1.classList.remove("current-step");
-     breadcrumb_step2.classList.remove("current-step");
-     breadcrumb_step3.classList.remove("current-step");
-     window.scrollTo(0, 0);
- });
-
- skip_to_results_btn2.addEventListener("click", (e) => {
-     section3.classList.add("hidden");
-     section4.classList.remove("hidden");
-     breadcrumb_step3.classList.add("passed");
-     breadcrumb_step3.classList.remove("active");
-     breadcrumb_step4.classList.add("active");
-     breadcrumb_step4.classList.add("current-step");
-     breadcrumb_step1.classList.remove("current-step");
-     breadcrumb_step2.classList.remove("current-step");
-     breadcrumb_step3.classList.remove("current-step");
-     window.scrollTo(0, 0);
- });
-
- breadcrumb_step1.addEventListener("click", (e) => {
+ breadcrumb_step1.addEventListener("click", function(e) {
      breadcrumb_step1.classList.add("current-step");
      breadcrumb_step2.classList.remove("current-step");
      breadcrumb_step3.classList.remove("current-step");
@@ -121,7 +456,7 @@
      }
  });
 
- breadcrumb_step2.addEventListener("click", (e) => {
+ breadcrumb_step2.addEventListener("click", function(e) {
      if (breadcrumb_step2.classList.contains('passed') || breadcrumb_step2.classList.contains('active')) {
          section2.classList.remove("hidden");
          section1.classList.add("hidden");
@@ -135,7 +470,7 @@
      }
  });
 
- breadcrumb_step3.addEventListener("click", (e) => {
+ breadcrumb_step3.addEventListener("click", function(e) {
      if (breadcrumb_step3.classList.contains('passed') || breadcrumb_step3.classList.contains('active')) {
          section3.classList.remove("hidden");
          section1.classList.add("hidden");
@@ -149,7 +484,7 @@
      }
  });
 
- breadcrumb_step4.addEventListener("click", (e) => {
+ breadcrumb_step4.addEventListener("click", function(e) {
      if (breadcrumb_step4.classList.contains('passed') || breadcrumb_step4.classList.contains('active')) {
          section4.classList.remove("hidden");
          section1.classList.add("hidden");
@@ -164,9 +499,9 @@
  });
 
  // Custom Select
- window.onload = function() {
-     crear_select();
- }
+//  window.onload = function() {
+//      crear_select();
+//  }
 
  function isMobileDevice() {
      return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
