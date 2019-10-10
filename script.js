@@ -165,6 +165,7 @@
  var breadcrumb_step2 = document.getElementById("breadcrumb_step2");
  var breadcrumb_step3 = document.getElementById("breadcrumb_step3");
  var breadcrumb_step4 = document.getElementById("breadcrumb_step4");
+ var industry = document.getElementById("select_industry")
 
  bench_btn.addEventListener("click", function(e) {
     switch (text_1.value.length === 0) {
@@ -207,7 +208,18 @@
             text_4.style = "";
             break;
     }
-    if (text_1.value && text_2.value && text_3.value && text_4.value) {
+     switch (industry.selectedIndex === 0) {
+         case true:
+             industry.parentElement.parentElement.lastElementChild.classList.contains('valid-error') ? '' : industry.parentElement.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+             industry.parentElement.style = 'border-color: #ff0000; transition: all 0.5s;';
+             break;
+         case false:
+             industry.parentElement.parentElement.lastElementChild.classList.contains('valid-error') ? industry.parentElement.parentElement.lastElementChild.remove() : '';
+             industry.parentElement.style = '';
+             break;
+     }
+
+    if (text_1.value && text_2.value && text_3.value && text_4.value && industry.selectedIndex) {
         section1.classList.add("hidden");
         section2.classList.remove("hidden");
         breadcrumb_step1.classList.add("passed");
@@ -227,6 +239,39 @@
  });
 
  fill_optional_btn.addEventListener("click", function(e) {
+     switch (selec_1.selectedIndex === 0) {
+         case true:
+             selec_1.parentElement.parentElement.lastElementChild.classList.contains('valid-error') ? '' : selec_1.parentElement.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+             selec_1.parentElement.style = 'border-color: #ff0000; transition: all 0.5s;';
+             break;
+         case false:
+             selec_1.parentElement.parentElement.lastElementChild.classList.contains('valid-error') ? selec_1.parentElement.parentElement.lastElementChild.remove() : '';
+             selec_1.parentElement.style = '';
+             break;
+     }
+
+     switch (selec_2.selectedIndex === 0) {
+         case true:
+             selec_2.parentElement.parentElement.lastElementChild.classList.contains('valid-error') ? '' : selec_2.parentElement.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+             selec_2.parentElement.style = 'border-color: #ff0000; transition: all 0.5s;';
+             break;
+         case false:
+             selec_2.parentElement.parentElement.lastElementChild.classList.contains('valid-error') ? selec_2.parentElement.parentElement.lastElementChild.remove() : '';
+             selec_2.parentElement.style = '';
+             break;
+     }
+
+     switch (selec_3.selectedIndex === 0) {
+         case true:
+             selec_3.parentElement.parentElement.lastElementChild.classList.contains('valid-error') ? '' : selec_3.parentElement.parentElement.insertAdjacentHTML("beforeend", '<div class="valid-error">This field is required</div>');
+             selec_3.parentElement.style = 'border-color: #ff0000; transition: all 0.5s;';
+             break;
+         case false:
+             selec_3.parentElement.parentElement.lastElementChild.classList.contains('valid-error') ? selec_3.parentElement.parentElement.lastElementChild.remove() : '';
+             selec_3.parentElement.style = '';
+             break;
+     }
+
     // Validation - Number of Full Time Employees (Mandatory)
     switch (text_7.value.length === 0) {
         case true:
@@ -351,22 +396,23 @@
             text_21.style = "";
             break;
     }
-    if (text_11.value && text_12.value && text_13.value && text_15.value && text_16.value && text_17.value && text_19.value && text_21.value && text_21.value) {
-        section2.classList.add("hidden");
-        section3.classList.remove("hidden");
-        breadcrumb_step2.classList.add("passed");
-        breadcrumb_step2.classList.remove("active");
-        if (breadcrumb_step4.classList.contains('active')) {
-            breadcrumb_step3.classList.add("passed");
-        } else {
-            breadcrumb_step3.classList.add("active");
-        }
-        breadcrumb_step3.classList.add("current-step");
-        breadcrumb_step1.classList.remove("current-step");
-        breadcrumb_step2.classList.remove("current-step");
-        breadcrumb_step4.classList.remove("current-step");
-        window.scrollTo(0, 0);
-    }
+     if (text_11.value && text_12.value && text_13.value && text_15.value && text_16.value && text_17.value &&
+         text_19.value && text_21.value && text_21.value && selec_1.selectedIndex && selec_2.selectedIndex && selec_3.selectedIndex) {
+         section2.classList.add("hidden");
+         section3.classList.remove("hidden");
+         breadcrumb_step2.classList.add("passed");
+         breadcrumb_step2.classList.remove("active");
+         if (breadcrumb_step4.classList.contains('active')) {
+             breadcrumb_step3.classList.add("passed");
+         } else {
+             breadcrumb_step3.classList.add("active");
+         }
+         breadcrumb_step3.classList.add("current-step");
+         breadcrumb_step1.classList.remove("current-step");
+         breadcrumb_step2.classList.remove("current-step");
+         breadcrumb_step4.classList.remove("current-step");
+         window.scrollTo(0, 0);
+     }
     
  });
 
@@ -2255,10 +2301,14 @@
      var total_cat_overall_outpatient_hospital_col2 = cat_overall_outpatient_column2 + cat_overall_hospital_column2;
 
 
-     var cat_accomodation_outpatient_column1 = 42.1 / 100;
-     var cat_accomodation_outpatient_column2 = 1.8;
-     var cat_accomodation_hospital_column1 = 3 / 100;
-     var cat_accomodation_hospital_column2 = 0.5;
+     // var cat_accomodation_outpatient_column1 = 42.1 / 100;
+     var cat_accomodation_outpatient_column1 = 68.8 / 100;
+     // var cat_accomodation_outpatient_column2 = 1.8;
+     var cat_accomodation_outpatient_column2 = 3.3;
+     // var cat_accomodation_hospital_column1 = 3 / 100;
+     var cat_accomodation_hospital_column1 = 4.5 / 100;
+     // var cat_accomodation_hospital_column2 = 0.5;
+     var cat_accomodation_hospital_column2 = 0.6;
 
      var total_cat_accomodation_outpatient_hospital_col1 = cat_accomodation_outpatient_column1 + cat_accomodation_hospital_column1;
      var total_cat_accomodation_outpatient_hospital_col2 = cat_accomodation_outpatient_column2 + cat_accomodation_hospital_column2;
@@ -2380,27 +2430,7 @@
      var text_3 = parseFloat(document.getElementById("text_3").value) / 100;
      var text_4 = parseFloat(document.getElementById("text_4").value);
 
-     if (text_1 <= 0 || isNaN(text_1)) {
-         alert("Please enter 1a textbox value");
-         return false;
-     }
-
-     if (text_2 <= 0 || isNaN(text_2)) {
-         alert("Please enter 1b textbox value ");
-         return false;
-     }
-
-     if (text_3 <= 0 || isNaN(text_3)) {
-         alert("Please enter 2a textbox value ");
-         return false;
-     }
-
-     if (text_4 <= 0 || isNaN(text_4)) {
-         alert("Please enter 2b textbox value ");
-         return false;
-     }
-
-     var Score_1a_accomodation = (text_1 / cat_accomodation_outpatient_column1);
+     var Score_1a_accomodation = (text_1 / cat_accomodation_outpatient_column1); // cat_accomodation_outpatient_column1 = 68.8%
      var Score_1b_accomodation = (text_2 / cat_accomodation_outpatient_column2);
      var Score_2a_accomodation = (text_3 / cat_accomodation_hospital_column1);
      var Score_2b_accomodation = (text_4 / cat_accomodation_hospital_column2);
@@ -2495,8 +2525,9 @@
 
      var benchmark_result;
 
+     console.log('select_industry', select_industry);
      if (select_industry == 1) {
-
+         console.log('avg_score_accomodation', avg_score_accomodation)
          if (avg_score_accomodation < 0.9) {
              benchmark_result = "Very Good";
          } else if (avg_score_accomodation > 1.1) {
@@ -3274,6 +3305,7 @@
      }
 
      var result1 = text_31 * text_11 / text_15;
+     console.log('result1 text_31 * text_11 / text_15', text_31, text_11, text_15, result1)
      document.getElementById("result1").value = result1.toFixed(0);
 
 
@@ -3590,6 +3622,7 @@
      // line chart start from here
 
      function drawChart() {
+         console.log('drawChart:');
          // Define the chart to be drawn.
          var data = new google.visualization.DataTable();
          data.addColumn('string', 'Year');
