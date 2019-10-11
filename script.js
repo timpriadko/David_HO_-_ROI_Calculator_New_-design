@@ -2301,14 +2301,10 @@
      var total_cat_overall_outpatient_hospital_col2 = cat_overall_outpatient_column2 + cat_overall_hospital_column2;
 
 
-     // var cat_accomodation_outpatient_column1 = 42.1 / 100;
-     var cat_accomodation_outpatient_column1 = 68.8 / 100;
-     // var cat_accomodation_outpatient_column2 = 1.8;
-     var cat_accomodation_outpatient_column2 = 3.3;
-     // var cat_accomodation_hospital_column1 = 3 / 100;
-     var cat_accomodation_hospital_column1 = 4.5 / 100;
-     // var cat_accomodation_hospital_column2 = 0.5;
-     var cat_accomodation_hospital_column2 = 0.6;
+     var cat_accomodation_outpatient_column1 = 42.1 / 100;
+     var cat_accomodation_outpatient_column2 = 1.8;
+     var cat_accomodation_hospital_column1 = 3 / 100;
+     var cat_accomodation_hospital_column2 = 0.5;
 
      var total_cat_accomodation_outpatient_hospital_col1 = cat_accomodation_outpatient_column1 + cat_accomodation_hospital_column1;
      var total_cat_accomodation_outpatient_hospital_col2 = cat_accomodation_outpatient_column2 + cat_accomodation_hospital_column2;
@@ -3739,7 +3735,7 @@
 
 
      }
-     google.charts.setOnLoadCallback(drawChart);
+     // google.charts.setOnLoadCallback(drawChart);
 
 
  }
