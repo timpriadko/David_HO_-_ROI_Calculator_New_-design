@@ -2521,9 +2521,7 @@
 
      var benchmark_result;
 
-     console.log('select_industry', select_industry);
      if (select_industry == 1) {
-         console.log('avg_score_accomodation', avg_score_accomodation)
          if (avg_score_accomodation < 0.9) {
              benchmark_result = "Very Good";
          } else if (avg_score_accomodation > 1.1) {
@@ -2746,6 +2744,7 @@
      //document.getElementById("bench_btn").style.display="none";
      //document.getElementById("bench_h3").style.display="block";
      document.getElementById("bench_h3").innerHTML = benchmark_result;
+     document.getElementById("current-benchmark-rating-value").innerHTML = benchmark_result;
      document.getElementById("bench_h3").style.background = h3color;
  }
 
