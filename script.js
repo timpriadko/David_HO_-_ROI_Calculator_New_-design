@@ -32,7 +32,7 @@
             $(this).text( +(new Date).getFullYear() - i );
         }
     });
-    
+
     // Init custom select
     crear_select();
 
@@ -41,7 +41,7 @@
     $(".next-year").text((new Date).getFullYear() + 1);
     $(".year-after-next").text((new Date).getFullYear() + 2);
     $(".2years-after-next").text((new Date).getFullYear() + 3);
-    
+
     // Step-4 validation
     var regEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     var email = $(".email");
@@ -229,7 +229,7 @@
         } else {
             breadcrumb_step2.classList.add("active");
         }
-   
+
         breadcrumb_step2.classList.add("current-step");
         breadcrumb_step1.classList.remove("current-step");
         breadcrumb_step3.classList.remove("current-step");
@@ -413,7 +413,7 @@
          breadcrumb_step4.classList.remove("current-step");
          window.scrollTo(0, 0);
      }
-    
+
  });
 
  compute_results.addEventListener("click", function(e) {
@@ -458,7 +458,7 @@
         breadcrumb_step2.classList.remove("current-step");
         breadcrumb_step3.classList.remove("current-step");
         window.scrollTo(0, 0);
-    }    
+    }
  });
 
  skip_to_results_btn.addEventListener("click", function(e) {
@@ -580,7 +580,7 @@
              };
              li[i].setAttribute('data-index', i);
              li[i].setAttribute('data-selec-index', e);
-             // funcion click al selecionar 
+             // funcion click al selecionar
              li[i].addEventListener('click', function() { _select_option(this.getAttribute('data-index'), this.getAttribute('data-selec-index')); });
 
              li[i].innerHTML = select_optiones[i].innerHTML;
@@ -588,7 +588,7 @@
 
          }; // Fin For select_optiones
      }; // fin for divs_cont_select
- } // Fin Function 
+ } // Fin Function
 
 
 
@@ -3615,17 +3615,14 @@
 
 
      // line chart start from here
+     google.charts.load('current', {'packages': ['corechart', 'bar']});
+     google.charts.setOnLoadCallback(drawRoiChart);
+     google.charts.setOnLoadCallback(drawIciChart);
 
-     function drawChart() {
-         console.log('drawChart:');
+     function drawRoiChart() {
          // Define the chart to be drawn.
-         var data = new google.visualization.DataTable();
-         data.addColumn('string', 'Year');
-         data.addColumn('number', 'Discrete ROI');
-         data.addColumn('number', 'Cumulative ROI');
-
-         data.addRows([
-             ['Year 1', null, null],
+         var data = google.visualization.arrayToDataTable([
+             ['Year', 'Discrete ROI', 'Cumulative ROI'],
              ['Year 2', discrete_annual_roi_yr2, cumulative_roi_yr2],
              ['Year 3', discrete_annual_roi_yr3, cumulative_roi_yr3],
              ['Year 4', discrete_annual_roi_yr4, cumulative_roi_yr4]
@@ -3633,20 +3630,17 @@
 
          // Set chart options
          var options = {
-             'title': 'ROI',
-             'height': 500,
-             hAxis: {
-                 title: 'Year'
-             },
-             vAxis: {
-                 title: 'Amount'
-             }
-         };
+                 'height': 500,
+                 seriesType: 'bars',
+                 series: {1: {type: 'line'}},
+             };
 
          // Instantiate and draw the chart.
-         //var chart = new google.visualization.LineChart(document.getElementById('container1'));
-         //chart.draw(data, options);
+         var chart = new google.visualization.ComboChart(document.getElementById('container1'));
+         chart.draw(data, options);
+     }
 
+     function drawIciChart() {
          var result1_f = parseFloat(document.getElementById("result1").value);
          var result2_f = parseFloat(document.getElementById("result2").value);
          var result3_f = parseFloat(document.getElementById("result3").value);
@@ -3689,52 +3683,21 @@
          var result32_f = parseFloat(document.getElementById("result32").value);
 
 
-
-
-
-
-
-
-
-
-
-
          var data1 = google.visualization.arrayToDataTable([
-             ['Year', 'Cost of absenteeism', 'Cost of Medical Claims', 'Overtime Cost', 'Cost of Recruitment', 'Cost of Lost Productivity', 'Cost of Employee Disengagement', 'Medical Insurance Costs', 'Other Health Cost'],
+             ['', 'Cost of absenteeism', 'Cost of Medical Claims', 'Overtime Cost', 'Cost of Recruitment', 'Cost of Lost Productivity', 'Cost of Employee Disengagement', 'Medical Insurance Costs', 'Other Health Cost'],
              ['Year 1', result1_f, result5_f, result9_f, result13_f, result17_f, result21_f, result25_f, result29_f],
              ['Year 2', result2_f, result6_f, result10_f, result14_f, result18_f, result22_f, result26_f, result30_f],
              ['Year 3', result3_f, result7_f, result11_f, result15_f, result19_f, result23_f, result27_f, result31_f],
              ['Year 4', result4_f, result8_f, result12_f, result16_f, result20_f, result24_f, result28_f, result32_f]
          ]);
 
-
-
          var options1 = {
-             title: 'Individual Cost Items (Investments in Benefits Shown as Negative)',
-             'height': 500
-
-
+             'height': 500,
+             bars: 'horizontal',
          };
 
          // Instantiate and draw the chart.
-         //var chart1 = new google.visualization.ColumnChart(document.getElementById('container2'));
-
-         //chart1.draw(data1, options1);
-
-
-         $("body").on("click", ".fn_graphics__item__hover1", function() {
-             var chart_02 = new google.visualization.LineChart(document.getElementById('container3'));
-             chart_02.draw(data, options);
-         });
-
-         $("body").on("click", ".fn_graphics__item__hover2", function() {
-             var chart2 = new google.visualization.ColumnChart(document.getElementById('container4'));
-             chart2.draw(data1, options1);
-         });
-
-
+         var chart1 = new google.charts.Bar(document.getElementById('container2'));
+         chart1.draw(data1, google.charts.Bar.convertOptions(options1));
      }
-     // google.charts.setOnLoadCallback(drawChart);
-
-
  }
