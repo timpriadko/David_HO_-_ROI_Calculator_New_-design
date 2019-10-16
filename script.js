@@ -2709,6 +2709,11 @@ function show_roimail_div() {
 
 
 function roicalculation() {
+    var items = document.getElementsByClassName("chart-title");
+    for (var i = 0; i < items.length; i++) {
+        items[i].style.display = 'block';
+    }
+
     var cat_overall_outpatient_column1 = 60 / 100;
     var cat_overall_outpatient_column2 = 2.9;
     var cat_overall_hospital_column1 = 6 / 100;
